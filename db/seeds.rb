@@ -34,8 +34,35 @@
     answer: 'Christian',
     completed: false}
   ]
+  more_objectives = [
+  {name: 'find the marker 2',
+    description: 'say marker',
+    answer: 'marker',
+    completed: false},
+  {name: 'find the laptop charger 2',
+    description: 'minus the laptop',
+    answer: 'charger',
+    completed: false},
+  {name: 'find the backpack 2',
+    description: 'Type backpack',
+    answer: 'backpack',
+    completed: false},
+  {name: 'find the instructor 2',
+    description: 'MiIrKat starts with an "m" for ...',
+    answer: 'Mike',
+    completed: false},
+  {name: 'find the snack 2',
+    description: 'Santa Eats a single...',
+    answer: 'cookie',
+    completed: false},
+  {name: 'find the author of this program 2',
+    description: "What's my name...",
+    answer: 'Christian',
+    completed: false}
+  ]
 
 first_objectives = Objective.create(objectives)
+second_objectives = Objective.create(more_objectives)
 
 
   # need to have multiple objectives
@@ -46,13 +73,15 @@ first_objectives = Objective.create(objectives)
     }
     )
 
+  hunt_template_2 = HuntTemplate.create(
+    {name: 'Test Template 2',
+      description: 'The second Hunt Template :P',
+      objectives: second_objectives # *** ***
+    }
+    )
+
   player_1 = Player.create(name: 'Christian', email: 'chris@tian.com')
+  player_2 = Player.create(name: 'Catholic', email: 'catholic@tian.com')
 
   hunt_1 = Hunt.create(hunt_template: hunt_template_1, player: player_1, start_time: Time.parse("2016-09-5 13:30:00 UTC"), end_time: Time.parse('2016-09-25 12:30:00 UTC') )
-
-  player_1.hunt = hunt_1
-# players = Player.create([
-#   {},
-#   {},
-#   {}
-#   ])
+  hunt_2 = Hunt.create(hunt_template: hunt_template_2, player: player_2, start_time: Time.parse("2016-09-10 10:30:00 UTC"), end_time: Time.parse('2016-09-25 12:30:00 UTC') )
