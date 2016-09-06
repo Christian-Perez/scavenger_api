@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160905185330) do
   create_table "hunt_templates", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.integer  "duration_min"
     t.integer  "objectives_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

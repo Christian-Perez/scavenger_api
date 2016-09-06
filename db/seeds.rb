@@ -69,14 +69,16 @@ second_objectives = Objective.create(more_objectives)
   hunt_template_1 = HuntTemplate.create(
     {name: 'Test Template 1',
       description: 'The first Hunt Template :)',
-      objectives: first_objectives # *** ***
+      objectives: first_objectives, # *** ***
+      duration_min: 120
     }
     )
 
   hunt_template_2 = HuntTemplate.create(
     {name: 'Test Template 2',
       description: 'The second Hunt Template :P',
-      objectives: second_objectives # *** ***
+      objectives: second_objectives, # *** ***
+      duration_min: 120
     }
     )
 
