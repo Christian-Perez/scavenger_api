@@ -8,5 +8,7 @@ class CreateObjectives < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    add_reference :objectives, :hunt_template
   end
 end

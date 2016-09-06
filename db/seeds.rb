@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Objective.create({name: 'find the marker', description: 'say marker', answer: 'marker', completed: false})
 
-test_objectives = Objective.create([
+  objectives = [
   {name: 'find the marker',
     description: 'say marker',
     answer: 'marker',
@@ -32,19 +33,24 @@ test_objectives = Objective.create([
     description: "What's my name...",
     answer: 'Christian',
     completed: false}
-  ])
+  ]
+
+first_objectives = Objective.create(objectives)
+
 
   # need to have multiple objectives
   hunt_template_1 = HuntTemplate.create(
     {name: 'Test Template 1',
       description: 'The first Hunt Template :)',
-      objective: test_objectives}
+      objectives: first_objectives # *** ***
+    }
     )
 
   player_1 = Player.create(name: 'Christian', email: 'chris@tian.com')
 
-  hunt_1 = Hunt.create(hunt_template: hunt_template_1, player: player_1 ,start_time: DateTime.now, end_time: 2016-09-20 10:30:00)
+  hunt_1 = Hunt.create(hunt_template: hunt_template_1, player: player_1, start_time: Time.parse("2016-09-5 13:30:00 UTC"), end_time: Time.parse('2016-09-25 12:30:00 UTC') )
 
+  player_1.hunt = hunt_1
 # players = Player.create([
 #   {},
 #   {},

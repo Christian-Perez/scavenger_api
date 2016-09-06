@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20160905185330) do
     t.string   "name"
     t.text     "description"
     t.string   "answer"
-    t.boolean  "completed",   default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "completed",        default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "hunt_template_id"
+    t.index ["hunt_template_id"], name: "index_objectives_on_hunt_template_id", using: :btree
   end
 
   create_table "players", force: :cascade do |t|
