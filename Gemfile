@@ -14,6 +14,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'rack-cors', :require => 'rack/cors'
+
 ruby '2.2.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
