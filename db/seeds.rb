@@ -8,7 +8,6 @@
 
 # Objective.create({name: 'find the marker', description: 'say marker', answer: 'marker', completed: false})
 
-new_hunt = Hunt.create()
   objectives = [
   {name: 'find the marker',
     description: 'say marker',
