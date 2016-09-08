@@ -10,11 +10,15 @@ class HuntsController < ApplicationController
 
   def populate_hunt(hunt_id)
     selected_hunt = Hunt.find(hunt_id)
+
     populated_template = {}
     populated_template[:name] = selected_hunt.hunt_template[:name]
     populated_template[:description] = selected_hunt.hunt_template[:description]
     populated_template[:duration_min] = selected_hunt.hunt_template[:duration_min]
-    populated_template[:objectives] = selected_hunt.player_objectives
+
+    populated_template[:player_objectives] = PlayerObjective.where(hunt_id: hunt_id)
+    populated_template[:objectives] = selected_hunt.hunt_template.objectives
+    # populated_template[:objectives][:completed] = selected_hunt.hunt_template.objectives
     populated_template
   end
 end
