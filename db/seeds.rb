@@ -8,6 +8,7 @@
 
 # Objective.create({name: 'find the marker', description: 'say marker', answer: 'marker', completed: false})
 
+new_hunt = Hunt.create()
   objectives = [
   {name: 'find the marker',
     description: 'say marker',
@@ -64,26 +65,43 @@
 first_objectives = Objective.create(objectives)
 second_objectives = Objective.create(more_objectives)
 
+# need to have multiple objectives
+hunt_template_1 = HuntTemplate.create(
+  {name: 'Test Template 1',
+    description: 'The first Hunt Template :)',
+    objectives: first_objectives,
+    duration_min: 120
+  }
+)
 
-  # need to have multiple objectives
-  hunt_template_1 = HuntTemplate.create(
-    {name: 'Test Template 1',
-      description: 'The first Hunt Template :)',
-      objectives: first_objectives, # *** ***
-      duration_min: 120
-    }
-    )
+hunt_template_2 = HuntTemplate.create(
+  {name: 'Test Template 2',
+    description: 'The second Hunt Template :P',
+    objectives: second_objectives,
+    duration_min: 120
+  }
+)
 
-  hunt_template_2 = HuntTemplate.create(
-    {name: 'Test Template 2',
-      description: 'The second Hunt Template :P',
-      objectives: second_objectives, # *** ***
-      duration_min: 120
-    }
-    )
+player_1 = Player.create(name: 'Christian', email: 'chris@tian.com')
+player_2 = Player.create(name: 'Catholic', email: 'catholic@tian.com')
 
-  player_1 = Player.create(name: 'Christian', email: 'chris@tian.com')
-  player_2 = Player.create(name: 'Catholic', email: 'catholic@tian.com')
+hunt_1 = Hunt.create(hunt_template_id: hunt_template_1.id, player_id: player_1.id, start_time: Time.parse("2016-09-5 13:30:00 UTC"), end_time: Time.parse('2016-09-25 12:30:00 UTC') )
+hunt_2 = Hunt.create(hunt_template_id: hunt_template_2.id, player_id: player_2.id, start_time: Time.parse("2016-09-10 10:30:00 UTC"), end_time: Time.parse('2016-09-25 12:30:00 UTC') )
 
-  hunt_1 = Hunt.create(hunt_template: hunt_template_1, player: player_1, start_time: Time.parse("2016-09-5 13:30:00 UTC"), end_time: Time.parse('2016-09-25 12:30:00 UTC') )
-  hunt_2 = Hunt.create(hunt_template: hunt_template_2, player: player_2, start_time: Time.parse("2016-09-10 10:30:00 UTC"), end_time: Time.parse('2016-09-25 12:30:00 UTC') )
+# don't think this'll work..
+first_player_objectives = PlayerObjective.create([
+  {completed: false, hunt_id: 1, objective_id: 1},
+  {completed: false, hunt_id: 1, objective_id: 2},
+  {completed: false, hunt_id: 1, objective_id: 3},
+  {completed: false, hunt_id: 1, objective_id: 4},
+  {completed: false, hunt_id: 1, objective_id: 5},
+  {completed: false, hunt_id: 1, objective_id: 6}
+])
+second_player_objectives = PlayerObjective.create([
+  {completed: false, hunt_id: 2, objective_id: 7},
+  {completed: false, hunt_id: 2, objective_id: 8},
+  {completed: false, hunt_id: 2, objective_id: 9},
+  {completed: false, hunt_id: 2, objective_id: 10},
+  {completed: false, hunt_id: 2, objective_id: 11},
+  {completed: false, hunt_id: 2, objective_id: 12}
+])
