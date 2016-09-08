@@ -4,10 +4,7 @@ class HuntsController < ApplicationController
   end
 
   def show
-    #render json for huntTemplate + it's Objectives
-    # render json: Hunt.find(params[:id])
     hunt_id = params[:id]
-    # render json: populate_hunt(1)
     render json: populate_hunt(hunt_id)
   end
 
