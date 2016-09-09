@@ -5,10 +5,7 @@ class HuntTemplatesController < ApplicationController
   end
 
   def show
-    # render json of hunt template + all it's objectives
     template_id = params[:id]
-    # user_id = params[:id]
-    # rendered_template = HuntTemplate.find(template_id)
     render json: populate_template(template_id)
   end
 
